@@ -52,18 +52,18 @@ export default function ProductFilters({
   };
 
   return (
-    <div className="space-y-4 p-4 bg-white rounded-lg shadow">
+    <div className="space-y-4 p-4 bg-gray-100 rounded-lg shadow-md">
       <div className="flex flex-col md:flex-row gap-4">
         {/* Search Input */}
         <div className="flex-1">
           <div className="relative">
-            <FiSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+            <FiSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-600" />
             <input
               type="text"
               placeholder="Search products..."
               value={searchTerm}
               onChange={handleSearchChange}
-              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full pl-10 pr-4 py-2 bg-white border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 placeholder-gray-500"
             />
           </div>
         </div>
@@ -71,11 +71,11 @@ export default function ProductFilters({
         {/* Category Filter */}
         <div className="w-full md:w-48">
           <div className="relative">
-            <FiFilter className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+            <FiFilter className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-600" />
             <select
               value={selectedCategory}
               onChange={handleCategoryChange}
-              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 appearance-none"
+              className="w-full pl-10 pr-4 py-2 bg-white border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 appearance-none"
             >
               <option value="">All Categories</option>
               {categories.map((category) => (
@@ -92,7 +92,7 @@ export default function ProductFilters({
           <select
             value={selectedSort}
             onChange={handleSortChange}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-4 py-2 bg-white border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900"
           >
             <option value="price_asc">Price: Low to High</option>
             <option value="price_desc">Price: High to Low</option>
