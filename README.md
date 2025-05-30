@@ -1,36 +1,124 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Marketplace - Next.js Learning Project
 
-## Getting Started
+A modern e-commerce marketplace built with Next.js 15, TypeScript, and Tailwind CSS. This project was developed as a learning exercise to explore modern web development technologies and best practices.
 
-First, run the development server:
+## 🌐 Live Demo
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Check out the live demo: [Marketplace](https://marketplace-laurafma.vercel.app/)
+
+## 🚀 Technologies Used
+
+- **Next.js 15**: For server-side rendering and routing
+- **TypeScript**: For type safety and better developer experience
+- **Tailwind CSS**: For utility-first styling
+- **Zustand**: For state management
+- **Platzi Fake Store API**: For product data
+
+## ✨ Features
+
+- **Product Listing**
+  - Responsive grid layout
+  - Search functionality
+  - Category filtering
+  - Price sorting
+  - Loading states and error handling
+
+- **Product Details**
+  - Image gallery
+  - Product information
+  - Related products
+  - Add to cart functionality
+
+- **Shopping Cart**
+  - Add/remove items
+  - Update quantities
+  - Persistent cart state
+  - Cart summary
+
+- **User Interface**
+  - Responsive design
+  - Modern and clean UI
+  - Loading states and animations
+  - Error handling
+
+## 🛠️ Project Structure
+
+```
+src/
+├── app/
+│   ├── page.tsx (Product listing)
+│   ├── product/[id]/
+│   │   └── page.tsx (Product detail)
+│   ├── cart/
+│   │   └── page.tsx (Shopping cart)
+│   └── profile/
+│       └── page.tsx (User profile)
+├── components/
+│   ├── ui/
+│   │   ├── ProductCard.tsx
+│   │   ├── ProductGrid.tsx
+│   │   ├── ProductDetail.tsx
+│   │   ├── CartItem.tsx
+│   │   └── ProductFilters.tsx
+│   └── layout/
+│       └── Header.tsx
+├── lib/
+│   ├── store/
+│   │   └── cartStore.ts (Zustand store)
+│   └── api/
+│       ├── products.ts
+│       └── categories.ts
+└── types/
+    └── index.ts
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Getting Started
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-## Learn More
+3. Run the development server:
+   ```bash
+   npm run dev
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📚 Learning Points
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Next.js 15 App Router implementation
+- TypeScript integration and type safety
+- Tailwind CSS for responsive design
+- State management with Zustand
+- API integration and data fetching
+- Component composition and reusability
+- Responsive design patterns
+- Error handling and loading states
 
-## Deploy on Vercel
+## 🎯 Future Improvements
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- [ ] Add authentication
+- [ ] Implement checkout process
+- [ ] Add user reviews and ratings
+- [ ] Implement wishlist functionality
+- [ ] Add product search with filters
+- [ ] Implement user orders history
+- [ ] Add admin dashboard
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📝 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## 🙏 Acknowledgments
+
+- [Platzi Fake Store API](https://fakeapi.platzi.com/) for providing the product data
+- [Next.js](https://nextjs.org/) for the amazing framework
+- [Tailwind CSS](https://tailwindcss.com/) for the utility-first CSS framework
+- [Zustand](https://github.com/pmndrs/zustand) for state management
