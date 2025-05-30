@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { FiShoppingCart } from 'react-icons/fi';
+import { FiShoppingCart, FiUser } from 'react-icons/fi';
 import { useCartStore } from '@/lib/store/cartStore';
 
 export default function Header() {
@@ -17,6 +17,12 @@ export default function Header() {
           </Link>
           
           <nav className="flex items-center gap-6">
+            {/* User Email */}
+            <span className="text-sm text-gray-300 hidden sm:block">
+              user@example.com
+            </span>
+
+            {/* Cart Icon */}
             <Link 
               href="/cart"
               className="relative p-2 text-white hover:text-blue-300 transition-colors"
@@ -27,6 +33,14 @@ export default function Header() {
                   {itemCount}
                 </span>
               )}
+            </Link>
+
+            {/* Profile Button */}
+            <Link
+              href="/profile"
+              className="p-2 text-white hover:text-blue-300 transition-colors"
+            >
+              <FiUser className="w-6 h-6" />
             </Link>
           </nav>
         </div>
