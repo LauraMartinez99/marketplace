@@ -7,6 +7,7 @@ import { getProduct, getProducts } from '@/lib/api/products';
 import ProductDetail from '@/components/ui/ProductDetail';
 import Header from '@/components/layout/Header';
 import ProductCard from '@/components/ui/ProductCard';
+import { useCartStore } from '@/lib/store/cartStore';
 
 export default function ProductPage() {
   const params = useParams();
@@ -14,6 +15,7 @@ export default function ProductPage() {
   const [relatedProducts, setRelatedProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const addItem = useCartStore(state => state.addItem);
 
   useEffect(() => {
     const loadProduct = async () => {
@@ -41,8 +43,9 @@ export default function ProductPage() {
   }, [params.id]);
 
   const handleAddToCart = (quantity: number) => {
-    // TODO: Implement add to cart functionality
-    console.log('Adding to cart:', { product, quantity });
+    if (product) {
+      addItem(product, quantity);
+    }
   };
 
   if (loading) {

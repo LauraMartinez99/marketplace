@@ -2,8 +2,12 @@
 
 import Link from 'next/link';
 import { FiShoppingCart } from 'react-icons/fi';
+import { useCartStore } from '@/lib/store/cartStore';
 
 export default function Header() {
+  const items = useCartStore(state => state.items);
+  const itemCount = items.reduce((total, item) => total + item.quantity, 0);
+
   return (
     <header className="bg-gray-800 shadow-lg">
       <div className="container mx-auto px-4 py-4">
@@ -18,9 +22,11 @@ export default function Header() {
               className="relative p-2 text-white hover:text-blue-300 transition-colors"
             >
               <FiShoppingCart className="w-6 h-6" />
-              <span className="absolute -top-1 -right-1 bg-blue-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
-                0
-              </span>
+              {itemCount > 0 && (
+                <span className="absolute -top-1 -right-1 bg-blue-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                  {itemCount}
+                </span>
+              )}
             </Link>
           </nav>
         </div>
