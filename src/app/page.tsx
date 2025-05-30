@@ -33,7 +33,7 @@ export default function Home() {
       try {
         setLoading(true);
         const offset = (currentPage - 1) * ITEMS_PER_PAGE;
-        const data = await getProducts(offset, ITEMS_PER_PAGE);
+        const data = await getProducts(offset, ITEMS_PER_PAGE, filters.category);
         setProducts(data);
         setFilteredProducts(data);
       } catch (error) {
@@ -44,7 +44,7 @@ export default function Home() {
       }
     };
     loadProducts();
-  }, [currentPage]);
+  }, [currentPage, filters.category]);
 
   useEffect(() => {
     const filtered = filterAndSortProducts(
@@ -101,6 +101,7 @@ export default function Home() {
           onSearch={handleSearch}
           onCategoryChange={handleCategoryChange}
           onSortChange={handleSortChange}
+          currentCategory={filters.category}
         />
 
         <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">

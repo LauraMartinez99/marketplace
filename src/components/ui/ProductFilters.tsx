@@ -9,16 +9,17 @@ interface ProductFiltersProps {
   onSearch: (search: string) => void;
   onCategoryChange: (category: string) => void;
   onSortChange: (sort: 'price_asc' | 'price_desc' | 'title_asc' | 'title_desc') => void;
+  currentCategory: string;
 }
 
 export default function ProductFilters({
   onSearch,
   onCategoryChange,
   onSortChange,
+  currentCategory,
 }: ProductFiltersProps) {
   const [categories, setCategories] = useState<Category[]>([]);
   const [searchTerm, setSearchTerm] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('');
   const [selectedSort, setSelectedSort] = useState<'price_asc' | 'price_desc' | 'title_asc' | 'title_desc'>('price_asc');
 
   useEffect(() => {
@@ -41,7 +42,6 @@ export default function ProductFilters({
 
   const handleCategoryChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const value = e.target.value;
-    setSelectedCategory(value);
     onCategoryChange(value);
   };
 
@@ -73,13 +73,13 @@ export default function ProductFilters({
           <div className="relative">
             <FiFilter className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-600" />
             <select
-              value={selectedCategory}
+              value={currentCategory}
               onChange={handleCategoryChange}
               className="w-full pl-10 pr-4 py-2 bg-white border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 appearance-none"
             >
               <option value="">All Categories</option>
               {categories.map((category) => (
-                <option key={category.id} value={category.slug}>
+                <option key={category.id} value={category.id}>
                   {category.name}
                 </option>
               ))}

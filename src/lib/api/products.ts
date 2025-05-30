@@ -2,8 +2,12 @@ import { Product, Category } from '@/types';
 
 const API_URL = 'https://api.escuelajs.co/api/v1';
 
-export async function getProducts(offset = 0, limit = 12): Promise<Product[]> {
-  const response = await fetch(`${API_URL}/products?offset=${offset}&limit=${limit}`);
+export async function getProducts(offset = 0, limit = 12, categoryId?: string): Promise<Product[]> {
+  let url = `${API_URL}/products?offset=${offset}&limit=${limit}`;
+  if (categoryId) {
+    url += `&categoryId=${categoryId}`;
+  }
+  const response = await fetch(url);
   if (!response.ok) {
     throw new Error('Failed to fetch products');
   }

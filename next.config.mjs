@@ -29,6 +29,18 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'example.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.google.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn-dynmedia-1.microsoft.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn.dummyjson.com',
       }
     ],
   },
